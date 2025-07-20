@@ -1,29 +1,46 @@
-import { Phone, Mail, MapPin, Send, User, Building } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Calendar } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 
 const ContactSection = () => {
   const contactInfo = [
     {
       icon: Phone,
       title: "Teléfono Principal",
-      details: ["933 657 758", "651 700 100 (backup)"],
-      description: "Lunes a Viernes, 9:00 - 18:00h"
+      value: "933 657 758",
+      secondary: "Backup: 651 700 100",
+      description: "Lunes a Viernes: 9:00 - 18:00h"
     },
     {
       icon: Mail,
       title: "Email Corporativo",
-      details: ["info@keilarplus.com", "contacto@keilarplus.com"],
-      description: "Respuesta en menos de 24h"
+      value: "info@keilarplus.com",
+      secondary: "soporte@keilarplus.com",
+      description: "Respuesta en menos de 2 horas"
     },
     {
       icon: MapPin,
       title: "Oficina Central",
-      details: ["Pl. de Francesc Macià, 89, 6º b", "08036 Barcelona, España"],
-      description: "Cita previa requerida"
+      value: "Pl. de Francesc Macià, 89, 6º b",
+      secondary: "08036 Barcelona, España",
+      description: "Zona Diagonal - Fácil acceso"
+    },
+    {
+      icon: Calendar,
+      title: "Consulta Gratuita",
+      value: "30 minutos de valoración",
+      secondary: "Sin compromiso",
+      description: "Análisis personalizado de necesidades"
     }
+  ];
+
+  const serviceAreas = [
+    "Hospitales y Clínicas",
+    "Centros de Investigación",
+    "Laboratorios de Análisis",
+    "Centros de Salud",
+    "Consultorios Médicos",
+    "Empresas Farmacéuticas"
   ];
 
   return (
@@ -31,160 +48,193 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-4xl font-bold text-foreground">
-            Comienza tu <span className="text-primary">Transformación</span>
+            Contacta con <span className="text-primary">Nosotros</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Contáctanos para una consultoría gratuita y descubre cómo la IA puede 
-            revolucionar tu organización sanitaria
+            Estamos aquí para ayudarte a transformar tu organización sanitaria con 
+            las soluciones de IA más avanzadas del mercado
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {/* Contact Information */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-foreground mb-6">
-              Información de Contacto
-            </h3>
-            
-            {contactInfo.map((info, index) => (
-              <Card key={index} className="border-border/50">
-                <CardHeader className="pb-3">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
-                      <info.icon className="h-5 w-5 text-white" />
+          <div className="lg:col-span-2 space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              {contactInfo.map((info, index) => (
+                <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50">
+                  <CardHeader>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <info.icon className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg text-foreground">{info.title}</CardTitle>
+                        <CardDescription className="text-muted-foreground text-sm">
+                          {info.description}
+                        </CardDescription>
+                      </div>
                     </div>
-                    <CardTitle className="text-lg text-foreground">{info.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  {info.details.map((detail, i) => (
-                    <div key={i} className="font-medium text-foreground">{detail}</div>
-                  ))}
-                  <CardDescription className="mt-2">
-                    {info.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-1">
+                      <div className="font-semibold text-primary">{info.value}</div>
+                      <div className="text-sm text-muted-foreground">{info.secondary}</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
 
-            {/* Quick Stats */}
-            <Card className="bg-gradient-to-r from-primary to-secondary text-white border-none">
+            {/* Contact Form */}
+            <Card className="border-border/50">
               <CardHeader>
-                <CardTitle className="text-white">¿Por qué elegirnos?</CardTitle>
+                <CardTitle className="text-xl text-foreground">
+                  Solicitar Información
+                </CardTitle>
+                <CardDescription>
+                  Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
+                </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex justify-between">
-                  <span>Experiencia en IA médica</span>
-                  <span className="font-bold">+10 años</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Proyectos completados</span>
-                  <span className="font-bold">200+</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Satisfacción cliente</span>
-                  <span className="font-bold">96%</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Soporte 24/7</span>
-                  <span className="font-bold">✓ Incluido</span>
-                </div>
+              <CardContent>
+                <form className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        Nombre *
+                      </label>
+                      <input 
+                        type="text" 
+                        className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                        placeholder="Tu nombre completo"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        Email *
+                      </label>
+                      <input 
+                        type="email" 
+                        className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                        placeholder="tu@email.com"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        Teléfono
+                      </label>
+                      <input 
+                        type="tel" 
+                        className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                        placeholder="+34 XXX XXX XXX"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">
+                        Organización
+                      </label>
+                      <input 
+                        type="text" 
+                        className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                        placeholder="Hospital / Clínica / Centro"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Área de Interés
+                    </label>
+                    <select className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground">
+                      <option>Selecciona un área</option>
+                      <option>Automatización Burocrática</option>
+                      <option>Análisis de Imágenes Médicas</option>
+                      <option>Investigación y Ensayos Clínicos</option>
+                      <option>Consultoría Integral</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">
+                      Mensaje
+                    </label>
+                    <textarea 
+                      rows={4}
+                      className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
+                      placeholder="Cuéntanos más sobre tu proyecto o necesidades específicas..."
+                    ></textarea>
+                  </div>
+
+                  <Button className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90">
+                    <Send className="h-4 w-4 mr-2" />
+                    Enviar Solicitud
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </div>
 
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
+          {/* Service Areas & Quick Info */}
+          <div className="space-y-6">
             <Card className="border-border/50">
               <CardHeader>
-                <CardTitle className="text-2xl text-foreground">Solicitar Información</CardTitle>
-                <CardDescription>
-                  Completa el formulario y nuestro equipo te contactará en menos de 24 horas
-                </CardDescription>
+                <CardTitle className="text-lg text-foreground">
+                  <Clock className="inline h-5 w-5 mr-2 text-primary" />
+                  Horarios de Atención
+                </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Nombre completo *</label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input 
-                        placeholder="Tu nombre completo" 
-                        className="pl-10 border-border"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Email corporativo *</label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input 
-                        type="email" 
-                        placeholder="tu@empresa.com" 
-                        className="pl-10 border-border"
-                      />
-                    </div>
+              <CardContent className="space-y-3">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Lunes - Viernes</span>
+                  <span className="font-medium text-foreground">9:00 - 18:00</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Sábados</span>
+                  <span className="font-medium text-foreground">10:00 - 14:00</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Domingos</span>
+                  <span className="font-medium text-foreground">Cerrado</span>
+                </div>
+                <div className="border-t border-border pt-3 mt-3">
+                  <div className="text-sm text-muted-foreground">
+                    <strong className="text-accent">Urgencias:</strong> Contacto 24/7 para clientes
                   </div>
                 </div>
+              </CardContent>
+            </Card>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Teléfono</label>
-                    <div className="relative">
-                      <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input 
-                        placeholder="+34 XXX XXX XXX" 
-                        className="pl-10 border-border"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">Organización *</label>
-                    <div className="relative">
-                      <Building className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                      <Input 
-                        placeholder="Nombre de tu hospital/clínica" 
-                        className="pl-10 border-border"
-                      />
-                    </div>
-                  </div>
-                </div>
+            <Card className="border-border/50">
+              <CardHeader>
+                <CardTitle className="text-lg text-foreground">
+                  Sectores que Atendemos
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2">
+                  {serviceAreas.map((area, index) => (
+                    <li key={index} className="flex items-center text-sm text-muted-foreground">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                      {area}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Tipo de servicio de interés</label>
-                  <select className="w-full p-3 border border-border rounded-md bg-background text-foreground">
-                    <option>Selecciona un servicio</option>
-                    <option>Automatización Burocrática</option>
-                    <option>Análisis de Imágenes Médicas</option>
-                    <option>Investigación y Ensayos Clínicos</option>
-                    <option>Consultoría general en IA</option>
-                    <option>Integración con sistemas existentes</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Mensaje</label>
-                  <Textarea 
-                    placeholder="Cuéntanos sobre tu proyecto y cómo podemos ayudarte..."
-                    rows={4}
-                    className="border-border"
-                  />
-                </div>
-
-                <div className="flex items-center space-x-3">
-                  <input type="checkbox" id="privacy" className="rounded" />
-                  <label htmlFor="privacy" className="text-sm text-muted-foreground">
-                    Acepto la política de privacidad y el tratamiento de mis datos
-                  </label>
-                </div>
-
-                <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white">
-                  <Send className="mr-2 h-4 w-4" />
-                  Enviar Solicitud
-                </Button>
-
-                <div className="text-center text-sm text-muted-foreground">
-                  También puedes llamarnos directamente al <span className="font-semibold text-primary">933 657 758</span>
+            <Card className="bg-gradient-primary text-white border-0">
+              <CardContent className="pt-6">
+                <div className="text-center">
+                  <Phone className="h-8 w-8 mx-auto mb-3 text-accent" />
+                  <h3 className="font-bold text-lg mb-2">Consulta Inmediata</h3>
+                  <p className="text-white/90 text-sm mb-4">
+                    ¿Necesitas hablar con un experto ahora?
+                  </p>
+                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                    Llamar Ahora
+                  </Button>
                 </div>
               </CardContent>
             </Card>
