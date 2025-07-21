@@ -69,7 +69,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-accent mt-1" />
                 <div>
-                  <div className="text-white">Pl. de Francesc Macià, 89, 6º b</div>
+                  <div className="text-white">Pl. de Francesc Macià, 8-9, 6º b</div>
                   <div className="text-background/70 text-sm">08036 Barcelona, España</div>
                 </div>
               </div>
