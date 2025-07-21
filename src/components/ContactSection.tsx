@@ -21,7 +21,7 @@ const ContactSection = () => {
     {
       icon: MapPin,
       title: "Oficina Central",
-      value: "Pl. de Francesc Macià, 89, 6º b",
+      value: "Pl. de Francesc Macià, 8-9, 6º b",
       secondary: "08036 Barcelona, España",
       description: "Zona Diagonal - Fácil acceso"
     },
