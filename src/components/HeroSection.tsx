@@ -45,8 +45,8 @@ const HeroSection = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+                variant="secondary"
+                className="bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm transition-all duration-300"
               >
                 Ver Casos de Éxito
               </Button>
