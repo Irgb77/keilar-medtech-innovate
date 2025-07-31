@@ -232,7 +232,7 @@ const ContactSection = () => {
                   <p className="text-white/90 text-sm mb-4">
                     ¿Necesitas hablar con un experto ahora?
                   </p>
-                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Button variant="secondary" className="w-full bg-white hover:bg-white/90 text-primary font-semibold shadow-md">
                     Llamar Ahora
                   </Button>
                 </div>
