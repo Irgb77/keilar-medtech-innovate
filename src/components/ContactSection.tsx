@@ -56,10 +56,10 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {/* Contact Information */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-6">
+            <div className="grid gap-6">
               {contactInfo.map((info, index) => (
                 <Card key={index} className="group hover:shadow-card transition-all duration-300 border-border/50">
                   <CardHeader>
@@ -77,7 +77,7 @@ const ContactSection = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-1">
-                      <div className="font-semibold text-primary">{info.value}</div>
+                      <div className="font-semibold text-primary text-xl">{info.value}</div>
                       <div className="text-sm text-muted-foreground">{info.secondary}</div>
                     </div>
                   </CardContent>
@@ -85,98 +85,52 @@ const ContactSection = () => {
               ))}
             </div>
 
-            {/* Contact Form */}
-            <Card className="border-border/50">
-              <CardHeader>
-                <CardTitle className="text-xl text-foreground">
-                  Solicitar Información
-                </CardTitle>
-                <CardDescription>
-                  Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Nombre *
-                      </label>
-                      <input 
-                        type="text" 
-                        className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
-                        placeholder="Tu nombre completo"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Email *
-                      </label>
-                      <input 
-                        type="email" 
-                        className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
-                        placeholder="tu@email.com"
-                      />
+            {/* Main Call to Action */}
+            <Card className="bg-gradient-primary text-white border-0 shadow-lg">
+              <CardContent className="pt-6">
+                <div className="text-center">
+                  <Phone className="h-12 w-12 mx-auto mb-4 text-white" />
+                  <h3 className="font-bold text-2xl mb-3">¿Hablamos de tu proyecto?</h3>
+                  <p className="text-white/90 mb-6 text-lg">
+                    Llámanos ahora para una consulta gratuita de 30 minutos
+                  </p>
+                  <div className="space-y-4">
+                    <Button 
+                      size="lg" 
+                      className="w-full bg-white hover:bg-white/90 text-primary font-bold text-lg py-6"
+                    >
+                      <Phone className="h-5 w-5 mr-2" />
+                      Llamar al 933 657 758
+                    </Button>
+                    <div className="text-white/80 text-sm">
+                      Backup: 651 700 100 | Lunes a Viernes: 9:00 - 18:00h
                     </div>
                   </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Teléfono
-                      </label>
-                      <input 
-                        type="tel" 
-                        className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
-                        placeholder="+34 XXX XXX XXX"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Organización
-                      </label>
-                      <input 
-                        type="text" 
-                        className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
-                        placeholder="Hospital / Clínica / Centro"
-                      />
-                    </div>
-                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Área de Interés
-                    </label>
-                    <select className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground">
-                      <option>Selecciona un área</option>
-                      <option>Automatización Burocrática</option>
-                      <option>Análisis de Imágenes Médicas</option>
-                      <option>Investigación y Ensayos Clínicos</option>
-                      <option>Consultoría Integral</option>
-                    </select>
+            {/* Email Alternative */}
+            <Card className="border-2 border-primary/20 bg-primary/5">
+              <CardContent className="pt-6">
+                <div className="text-center">
+                  <Mail className="h-8 w-8 mx-auto mb-3 text-primary" />
+                  <h3 className="font-bold text-lg mb-2 text-foreground">¿Prefieres escribir?</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Envíanos un email con tu consulta
+                  </p>
+                  <div className="bg-background p-4 rounded-lg border">
+                    <div className="font-semibold text-primary text-lg">info@keilarplus.com</div>
+                    <div className="text-sm text-muted-foreground mt-1">
+                      Respuesta garantizada en menos de 2 horas
+                    </div>
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Mensaje
-                    </label>
-                    <textarea 
-                      rows={4}
-                      className="w-full px-4 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-background text-foreground"
-                      placeholder="Cuéntanos más sobre tu proyecto o necesidades específicas..."
-                    ></textarea>
-                  </div>
-
-                  <Button className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90">
-                    <Send className="h-4 w-4 mr-2" />
-                    Enviar Solicitud
-                  </Button>
-                </form>
+                </div>
               </CardContent>
             </Card>
           </div>
 
-          {/* Service Areas & Quick Info */}
+          {/* Service Areas & Additional Info */}
           <div className="space-y-6">
             <Card className="border-border/50">
               <CardHeader>
@@ -200,7 +154,7 @@ const ContactSection = () => {
                 </div>
                 <div className="border-t border-border pt-3 mt-3">
                   <div className="text-sm text-muted-foreground">
-                    <strong className="text-accent">Urgencias:</strong> Contacto 24/7 para clientes
+                    <strong className="text-primary">Urgencias:</strong> Contacto 24/7 para clientes
                   </div>
                 </div>
               </CardContent>
@@ -224,17 +178,16 @@ const ContactSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-primary text-white border-0">
+            <Card className="bg-muted/50 border-border/50">
               <CardContent className="pt-6">
                 <div className="text-center">
-                  <Phone className="h-8 w-8 mx-auto mb-3 text-accent" />
-                  <h3 className="font-bold text-lg mb-2">Consulta Inmediata</h3>
-                  <p className="text-white/90 text-sm mb-4">
-                    ¿Necesitas hablar con un experto ahora?
-                  </p>
-                  <Button variant="secondary" className="w-full bg-white hover:bg-white/90 text-primary font-semibold shadow-md">
-                    Llamar Ahora
-                  </Button>
+                  <MapPin className="h-8 w-8 mx-auto mb-3 text-primary" />
+                  <h3 className="font-bold text-lg mb-2 text-foreground">Visítanos</h3>
+                  <div className="space-y-1">
+                    <div className="font-medium text-foreground">Pl. de Francesc Macià, 8-9, 6º b</div>
+                    <div className="text-sm text-muted-foreground">08036 Barcelona, España</div>
+                    <div className="text-xs text-muted-foreground mt-2">Zona Diagonal - Fácil acceso</div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
