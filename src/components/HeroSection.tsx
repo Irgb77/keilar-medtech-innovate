@@ -39,6 +39,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-glow"
+                onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Consulta Gratuita
                 <ArrowRight className="ml-2 h-5 w-5" />

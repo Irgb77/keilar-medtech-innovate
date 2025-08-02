@@ -164,10 +164,16 @@ const SuccessStoriesSection = () => {
             su eficiencia operativa con nuestras soluciones de IA
           </p>
           <div className="flex justify-center space-x-4">
-            <button className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-lg font-semibold transition-colors">
+            <button 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3 rounded-lg font-semibold transition-colors"
+              onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Solicitar Demo
             </button>
-            <button className="border border-white/30 text-white hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors">
+            <button 
+              className="border border-white/30 text-white hover:bg-white/10 px-8 py-3 rounded-lg font-semibold transition-colors"
+              onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Contactar Ahora
             </button>
           </div>

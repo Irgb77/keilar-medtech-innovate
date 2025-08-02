@@ -54,7 +54,10 @@ const Header = () => {
             <a href="#contacto" className="text-foreground hover:text-primary transition-colors">
               Contacto
             </a>
-            <Button className="bg-gradient-primary text-primary-foreground hover:opacity-90">
+            <Button 
+              className="bg-gradient-primary text-primary-foreground hover:opacity-90"
+              onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Consulta Gratuita
             </Button>
           </nav>
@@ -86,7 +89,10 @@ const Header = () => {
             <a href="#contacto" className="block text-foreground hover:text-primary transition-colors">
               Contacto
             </a>
-            <Button className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90">
+            <Button 
+              className="w-full bg-gradient-primary text-primary-foreground hover:opacity-90"
+              onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Consulta Gratuita
             </Button>
           </nav>
